@@ -53,7 +53,7 @@ def productos():
     cursor = con.cursor(dictionary=True)
     sql    = """
     SELECT idCliente,
-          nombreCliente,
+           nombreCliente,
            numero
            
     FROM clientes
