@@ -45,19 +45,18 @@ def app2():
 
     return "<h5>Hola, soy la view app</h5>";
 
-@app.route("/productos")
+@app.route("/clientes")
 def productos():
     if not con.is_connected():
         con.reconnect()
 
     cursor = con.cursor(dictionary=True)
     sql    = """
-    SELECT Id_Producto,
-           Nombre_Producto,
-           Precio,
-           Existencias
-
-    FROM productos
+    SELECT idCliente,
+          nombreCliente,
+           numero
+           
+    FROM clientes
 
     LIMIT 10 OFFSET 0
     """
@@ -75,7 +74,7 @@ def productos():
         registro["Hora"]       = fecha_hora.strftime("%H:%M:%S")
     """
 
-    return render_template("productos.html", productos=registros)
+    return render_template("clientes.html", clientes=registros)
 
 @app.route("/productos/buscar", methods=["GET"])
 def buscarProductos():
