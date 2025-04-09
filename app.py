@@ -77,15 +77,15 @@ def productos():
     return render_template("clientes.html", clientes=registros)
 
     
-    @app.route("/clientes/cuentas/<int:id>")
-    def productos2(id):
-    if not con.is_connected():
+@app.route("/clientes/cuentas/<int:id>")
+def productos2(id):
+     if not con.is_connected():
         con.reconnect()
 
     cursor = con.cursor(dictionary=True)
     sql    = """
-    SELECT * FROM clientes
-    INNER JOIN cuentas ON clientes.idCliente = cuentas.idCliente
+    SELECT * FROM cuentas
+    INNER JOIN clientes ON clientes.idCliente = cuentas.idCliente
    
     WHERE clientes.idCliente = %s
     ORDER BY cuentas.nombreCliente
