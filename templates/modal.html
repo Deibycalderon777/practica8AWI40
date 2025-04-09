@@ -1,19 +1,18 @@
 <table class="table table-sm">
     <thead class="table-active">
         <tr>
-            <th>Id Cliente</th>
-            <th>Nombre Cliente</th>
-            <th>Numero</th>
-            <th>Aciones</th>
+            <th>monto</th>
+            <th>Fecha Hora</th>
+           
             
         </tr>
     </thead>
     <tbody>
         {% for clientecuenta in clientesCuentas %}
         <tr>
-            <td>{{ clientecuenta.idCliente }}</td>
-            <td>{{ clientecuenta.nombreCliente }}</td>
-            <td>{{ clientecuenta.numero }}</td>
+            <td>{{ clientecuenta.monto }}</td>
+            <td>{{ clientecuenta.fechaHora }}</td>
+          
             
        
            
