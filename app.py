@@ -79,7 +79,7 @@ def productos():
     
 @app.route("/clientes/cuentas/<int:id>")
 def productos2(id):
-     if not con.is_connected():
+    if not con.is_connected():
         con.reconnect()
 
     cursor = con.cursor(dictionary=True)
