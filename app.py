@@ -76,6 +76,30 @@ def productos():
 
     return render_template("clientes.html", clientes=registros)
 
+    
+    @app.route("/clientes/cuentas/<int:id>")
+    def productos2(id):
+    if not con.is_connected():
+        con.reconnect()
+
+    cursor = con.cursor(dictionary=True)
+    sql    = """
+    SELECT * FROM clientes
+    INNER JOIN cuentas ON clientes.idCliente = cuentas.idCliente
+   
+    WHERE clientes.idCliente = %s
+    ORDER BY cuentas.nombreCliente
+
+    
+    """
+
+    cursor.execute(sql, (id, ))
+    registros = cursor.fetchall()
+
+    return render_template("modal.html", clientesCuentas=registros)
+
+
+
 @app.route("/productos/buscar", methods=["GET"])
 def buscarProductos():
     if not con.is_connected():
