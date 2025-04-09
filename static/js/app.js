@@ -74,9 +74,24 @@ app.run(["$rootScope", "$location", "$timeout", function($rootScope, $location, 
 app.controller("appCtrl", function ($scope, $http) {
     // alert("Hola, soy el controlador app")
 })
+
+
 app.controller("clientesCtrl", function ($scope, $http) {
-    // alert("Hola, soy el controlador productos")
+    $(document).on("click", ".btn-ingredientes", function (event) {
+        const id = $(this).data("id")
+
+        $.get(`/clientes/cuentas/${id}`, function (html) {
+            modal(html, "Cuentas", [
+                {html: "Aceptar", class: "btn btn-secondary", fun: function (event) {
+                    closeModal()
+                }}
+            ])
+        })
+    })
 })
+
+
+
 
 
 const DateTime = luxon.DateTime
