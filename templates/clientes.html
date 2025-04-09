@@ -4,6 +4,7 @@
             <th>Id Cliente</th>
             <th>Nombre Cliente</th>
             <th>Numero</th>
+            <th>Aciones</th>
             
         </tr>
     </thead>
@@ -13,6 +14,8 @@
             <td>{{ cliente.idCliente }}</td>
             <td>{{ cliente.nombreCliente }}</td>
             <td>{{ cliente.numero }}</td>
+            
+             <td> <button class="btn btn-info btn-ingredientes" data-id="{{ cliente.idCliente }}"  >  </button> Ver Cuentas...  </td>
            
         </tr>
         {% endfor %}
