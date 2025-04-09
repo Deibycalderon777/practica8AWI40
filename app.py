@@ -88,7 +88,7 @@ def productos2(id):
     INNER JOIN clientes ON clientes.idCliente = cuentas.idCliente
    
     WHERE clientes.idCliente = %s
-    ORDER BY cuentas.nombreCliente
+    ORDER BY clientes.nombreCliente
 
     
     """
